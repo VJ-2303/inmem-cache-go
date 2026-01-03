@@ -43,6 +43,7 @@ func (c *Cache[K, V]) Remove(key K) {
 	delete(c.items, key)
 }
 
+// Pop returns an key-value from the cache, and pop the value if its exists
 func (c *Cache[K, V]) Pop(key K) (V, bool) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
